@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  <script src="./jquery.easing.1.3.js"></script>
+<link rel="stylesheet" href="styles.css">
+<style type="text/css">
+    #container {
+        bottom: 0px ;
+        display: none ;
+        left: 0px ;
+        position: fixed ;
+        width: 100% ;
+        }
+    #inner {
+        border: 1px solid #666666 ;
+        border-bottom-width: 0px ;
+        padding:25px 25px 0px 25px;
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background:url('./background.jpg');
+        background-size:cover;
+        background-position:center;
+        }
+        #innerinner {
+          background:white;
+          opacity:.8;
+          text-align: center;
+          padding:15px;
+          border-radius: 4px;
+
+        }
+        #close {
+          cursor:pointer;
+          background:black;
+          color:white;
+          padding:7px;
+          display:inline-block;
+          border-radius: 4px;
+        }
+        .signuptext {
+          max-width:450px;
+          width:100%;
+          text-align:center;
+        }
+</style>
+</head>
+<body>
+
+      <h1>
+          jQuery SlideDown() / SlideUp() With Bottom-Positioned Elements
+      </h1>
+
+      <p>
+          <a href="#">Show Div With SlideDown()</a>
+      </p>
+
+      <div id="container">
+          <div id="inner">
+            <div id="innerinner">
+            <h1>SIGN UP AND SAVE 10%</h1>
+            <div class="signuptext">
+              We'd love to keep you informed of our latest and greatest things.
+            </div>
+            <input type="text" style="width:100%;max-width:250px;margin-top:20px;margin-bottom:20px;padding:10px;border-radius:4px;">
+              <div id="close">close</div>
+            </div>
+          </div>
+
+      </div>
+
+
+<script>
+$(window).resize(function(){
+  var height=window.innerHeight;
+  $('#inner').height(height);
+  console.log(height);
+})
+$(document).ready(function(){
+  var height=window.innerHeight;
+  $('#inner').height(height);
+  console.log(height);
+  var container = $( "#container" );
+  // Bind the link to toggle the slide.
+  $( "a" ).click(
+      function( event ){
+          // Prevent the default event.
+          event.preventDefault();
+          // Toggle the slide based on its current
+          // visibility.
+          if (container.is( ":visible" )){
+              // Hide - slide up.
+              container.slideUp( 300, "easeInOutQuad" );
+          } else {
+              // Show - slide down.
+              container.slideDown( 300, "easeInOutQuad" );
+          }
+      }
+  );
+  $( "#close" ).click(
+      function( event ){
+          // Prevent the default event.
+          event.preventDefault();
+          // Toggle the slide based on its current
+          // visibility.
+          if (container.is( ":visible" )){
+              // Hide - slide up.
+              container.slideUp( 300, "easeInOutQuad" );
+          } else {
+              // Show - slide down.
+              container.slideDown( 300, "easeInOutQuad" );
+          }
+      }
+  );
+})
+</script>
+</body>
+</html>
